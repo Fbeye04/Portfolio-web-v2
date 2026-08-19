@@ -3,6 +3,7 @@ import About from "./sections/About";
 import Hero from "./sections/Hero";
 import Tools from "./sections/Tools";
 import Projects from "./sections/Projects";
+import Contact from "./sections/Contact";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <About />
         <Tools />
         <Projects />
+        <Contact />
       </main>
     </div>
   );

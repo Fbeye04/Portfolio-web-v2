@@ -15,7 +15,7 @@ import ScrollIndicator from "../components/atoms/ScrollIndicator";
 
 export default function Hero() {
   return (
-    <section className='grid grid-cols-2 lg:grid-cols-[4fr_4fr_2fr] grid-rows-[2fr_1fr_1fr_auto] md:grid-rows-[3fr_1fr_1fr_auto]  lg:grid-rows-[2fr_1fr_auto] main-layout px-8 md:px-16 lg:px-10 flex-1 snap-start h-full pb-5 max-w-[1440px] mx-auto'>
+    <section className='grid grid-cols-2 lg:grid-cols-[4fr_4fr_2fr] grid-rows-[2fr_1fr_1fr_auto] md:grid-rows-[3fr_1fr_1fr_auto]  lg:grid-rows-[2fr_1fr_auto] main-layout px-8 md:px-16 lg:px-10 flex-1 snap-start pb-5 h-full max-w-[1440px] mx-auto'>
       <div className='relative area-text self-center lg:self-end flex flex-col gap-6 mt-6 lg:mb-4'>
         <div className='flex items-center gap-2'>
           <span className='font-medium md:text-xl'>Hello, I'm</span>

@@ -41,10 +41,10 @@ export default function About() {
           </h2>
 
           <p className='text-sm md:text-lg lg:max-w-[90%]'>
-            I'm a Full-Stack Developer from ITS Surabaya, trained through DBS
-            Foundation and Harisenin.com. I combine strong engineering logic
-            with a focus on building responsive interfaces and scalable APIs,
-            ready to create meaningful solutions in the professional industry.
+            I'm a Full-Stack Developer trained through DBS Foundation and
+            Harisenin.com. I combine strong scientific logic with a focus on
+            building responsive interfaces and scalable APIs, ready to create
+            meaningful solutions in the professional industry.
           </p>
 
           {/* garis pembatas */}
