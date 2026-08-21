@@ -7,18 +7,18 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className='z-50 flex justify-between lg:items-center w-full shrink-0 px-8 md:px-16 py-10 lg:px-10 max-w-[1440px] mx-auto'>
+    <nav className='z-50 flex justify-between lg:items-center w-full shrink-0 px-8 py-5 md:px-16 md:py-10 lg:py-8 lg:px-10 max-w-[1440px] mx-auto'>
       <span className='z-50 lg:z-0 font-extrabold text-xl md:text-3xl tracking-tight'>
         {"{ FB }"}
       </span>
 
       <button
-        className='lg:hidden z-50 lg:z-0 bg-primary-olive rounded-full p-2'
+        className='lg:hidden z-50 lg:z-0 bg-primary-olive rounded-full p-2 md:p-3'
         onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (
-          <FaXmark className='w-5 h-5 text-white' />
+          <FaXmark className='w-5 h-5 md:w-7 md:h-7 text-white' />
         ) : (
-          <FaBars className='w-5 h-5 text-white' />
+          <FaBars className='w-5 h-5 md:w-7 md:h-7 text-white' />
         )}
       </button>
 

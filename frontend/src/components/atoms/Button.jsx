@@ -5,10 +5,16 @@ const VARIANTS = {
     "bg-off-white border-dark-brown transition-all duration-150 hover:bg-dark-brown hover:border-soft-taupe hover:text-off-white active:scale-[0.97] active:bg-soft-taupe active:text-dark-brown focus:outline-none focus:ring-2 focus:ring-light-olive",
 };
 
-export default function Button({ variant = "secondary", children, className }) {
+export default function Button({
+  variant = "secondary",
+  children,
+  className,
+  type,
+}) {
   const buttonVariant = VARIANTS[variant] || VARIANTS.secondary;
   return (
     <button
+      type={type}
       className={`flex justify-center items-center gap-2 py-1 px-2 md:py-2 md:px-6 text-lg md:text-xl font-semibold rounded-2xl lg:rounded-[20px] border ${buttonVariant} ${className}`}>
       {children}
     </button>
