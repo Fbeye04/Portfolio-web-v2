@@ -41,8 +41,7 @@
     grid-template-areas:
       "text profile"
       "feature feature"
-      "button button"
-      "scroll scroll";
+      "button button";
   }
 
   .area-text {
@@ -61,16 +60,11 @@
     grid-area: button;
   }
 
-  .area-scroll {
-    grid-area: scroll;
-  }
-
   @media (min-width: 1024px) {
     .main-layout {
       grid-template-areas:
         "text profile feature"
-        "button profile ..."
-        "scroll scroll scroll";
+        "button profile ...";
     }
   }
 }

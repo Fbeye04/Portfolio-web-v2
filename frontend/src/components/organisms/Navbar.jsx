@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../atoms/Button";
+import LinkButton from "../atoms/LinkButton";
 import NavItem from "../atoms/NavItem";
 import { FaArrowRight, FaBars, FaXmark } from "react-icons/fa6";
 
@@ -7,8 +7,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className='z-50 flex justify-between lg:items-center w-full shrink-0 px-8 py-5 md:px-16 md:py-10 lg:py-8 lg:px-10 max-w-[1440px] mx-auto'>
-      <span className='z-50 lg:z-0 font-extrabold text-xl md:text-3xl tracking-tight'>
+    <nav className='flex justify-between lg:items-center py-5 md:py-7 border-b-[1px] border-warm-gray max-w-5xl mx-auto px-7 md:px-16 lg:px-0'>
+      <span className='font-extrabold text-xl md:text-3xl tracking-tight'>
         {"{ FB }"}
       </span>
 
@@ -32,17 +32,32 @@ export default function Navbar() {
       <div
         className={`fixed top-0 left-0 z-40 lg:z-0 w-full lg:w-auto bg-off-white pt-24 pb-10 px-10 ${isOpen ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300 ease-in-out lg:static lg:bg-transparent lg:p-0 lg:translate-y-0 flex flex-col lg:flex-row items-center gap-4`}>
         <ul className='flex flex-col lg:flex-row items-center gap-4 text-lg lg:text-xl'>
-          <NavItem link='#' title='About Me' onClick={() => setIsOpen(false)} />
-          <NavItem link='#' title='Projects' onClick={() => setIsOpen(false)} />
-          <NavItem link='#' title='Contact' onClick={() => setIsOpen(false)} />
+          <NavItem
+            link='#about'
+            title='About Me'
+            onClick={() => setIsOpen(false)}
+          />
+          <NavItem
+            link='#projects'
+            title='Projects'
+            onClick={() => setIsOpen(false)}
+          />
+          <NavItem
+            link='#contact'
+            title='Contact'
+            onClick={() => setIsOpen(false)}
+          />
         </ul>
 
         <div className='block lg:hidden h-px w-full bg-[#E4E1D8]'></div>
 
-        <Button variant='primary' className='w-full lg:w-auto justify-center'>
+        <LinkButton
+          variant='primary'
+          link='mailto:fachrezibarus@gmail.com?subject=Let%27s%20Work%20Together'
+          className='w-full lg:w-auto justify-center'>
           Let's talk
           <FaArrowRight />
-        </Button>
+        </LinkButton>
       </div>
     </nav>
   );

@@ -1,6 +1,4 @@
-import ScrollIndicator from "../components/atoms/ScrollIndicator";
 import TechCard from "../components/molecules/TechCard";
-import { FaCircle } from "react-icons/fa6";
 
 const myToolsData = [
   {
@@ -17,7 +15,7 @@ const myToolsData = [
   },
   {
     icon: "devicon-tailwindcss-plain",
-    name: "Tailwind CSS",
+    name: "Tailwind",
   },
   {
     icon: "devicon-react-original",
@@ -43,46 +41,28 @@ const myToolsData = [
 
 export default function Tools() {
   return (
-    <section className='flex flex-col px-8 md:px-16 lg:px-10 pb-5 snap-start h-full max-w-[1440px] mx-auto'>
-      <div className='flex-1 flex flex-col items-center gap-4 md:gap-6 lg:gap-10 lg:mt-10'>
-        {/* judul dan deskripsi section */}
-        <div className='flex flex-col items-center gap-4 md:gap-6'>
-          <div className='text-primary-olive bg-light-olive font-semibold flex justify-center items-center gap-1 p-2 rounded-[20px] text-xs md:text-sm'>
-            <div>{"</>"}</div>
-            <span className='uppercase'>Technologies & Tools</span>
-          </div>
-
-          <h2 className='font-extrabold text-3xl md:text-5xl'>
-            <span className='text-primary-olive'>{"< "}</span>
-            My Tools
-            <span className='text-primary-olive'>{" />"}</span>
-          </h2>
-
-          <p className='text-center max-w-[70%] md:text-xl'>
-            Here are some tools that I usually use for website creation or
-            design
-          </p>
-
-          <div className='flex items-center gap-2'>
-            <div className='bg-primary-olive h-[2px] w-10 md:w-20 rounded-[10px]'></div>
-            <FaCircle className='text-primary-olive w-3 h-3' />
-            <div className='bg-primary-olive h-[2px] w-10 md:w-20 rounded-[10px]'></div>
-          </div>
+    <section className='flex flex-col items-start gap-4 md:gap-6 lg:gap-10 '>
+      <div className='flex flex-col gap-1'>
+        <div className='flex items-center gap-2 text-xs md:text-lg text-primary-olive font-bold'>
+          <span>{"</>"}</span>
+          <span className='uppercase'>Technologies</span>
         </div>
 
-        {/* tech tools */}
-        <div className='grid grid-cols-3 lg:flex lg:flex-wrap lg:justify-center lg:gap-6 gap-4 w-full lg:max-w-5xl'>
-          {myToolsData.map((tools) => (
-            <TechCard
-              key={tools.name}
-              iconClass={tools.icon}
-              techName={tools.name}
-            />
-          ))}
-        </div>
+        <h2 className="relative w-fit pb-4 font-bold text-2xl md:text-4xl after:absolute after:left-0 after:bottom-0 after:h-1 after:w-1/2 after:rounded-md after:bg-primary-olive after:content-['']">
+          Tech Stack
+        </h2>
       </div>
 
-      <ScrollIndicator invitation='See my previous project' />
+      {/* tech tools */}
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-start lg:gap-6 gap-4 w-full'>
+        {myToolsData.map((tools) => (
+          <TechCard
+            key={tools.name}
+            iconClass={tools.icon}
+            techName={tools.name}
+          />
+        ))}
+      </div>
     </section>
   );
 }

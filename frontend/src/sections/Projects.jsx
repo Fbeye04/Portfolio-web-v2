@@ -1,17 +1,13 @@
-import ScrollIndicator from "../components/atoms/ScrollIndicator";
-import Button from "../components/atoms/Button";
 import {
-  FaAngleRight,
   FaFilm,
   FaUtensils,
   FaMap,
-  FaAngleLeft,
+  FaArrowUpRightFromSquare,
 } from "react-icons/fa6";
-import ProjectCard from "../components/organisms/ProjectCard";
 import projectOne from "../assets/chill.png";
 import projectTwo from "../assets/restomate.png";
 import projectThree from "../assets/rest-countries-app.png";
-import { useState, useRef } from "react";
+import LinkButton from "../components/atoms/LinkButton";
 
 const projectData = [
   {
@@ -21,6 +17,8 @@ const projectData = [
     icon: <FaFilm />,
     desc: "A movie streaming platform with browsing, search, and watchlist.",
     tech: ["React", "Tailwind CSS", "Node.js", "MySQL"],
+    repo: "https://github.com/Fbeye04/chill-movie-streaming-react-part-4",
+    demo: "",
   },
   {
     id: 2,
@@ -29,6 +27,8 @@ const projectData = [
     icon: <FaUtensils />,
     desc: "A restaurant web app with ordering, menu browsing, and reservation features.",
     tech: ["Javascript", "PWA", "IndexedDB"],
+    repo: "https://github.com/Fbeye04/chill-movie-streaming-react-part-4",
+    demo: "",
   },
   {
     id: 3,
@@ -37,115 +37,77 @@ const projectData = [
     icon: <FaMap />,
     desc: "An interactive country explorer web featuring third-party REST API and filter/search capabilities.",
     tech: ["React", "Tailwind CSS", "Rest API"],
+    repo: "https://github.com/Fbeye04/chill-movie-streaming-react-part-4",
+    demo: "",
   },
 ];
 
 export default function Projects() {
-  const carouselRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(1);
-
-  const handleNext = () => {
-    if (carouselRef.current) {
-      const containerWidth = carouselRef.current.clientWidth;
-      carouselRef.current.scrollBy({
-        left: containerWidth,
-        behaviour: "smooth",
-      });
-    }
-  };
-
-  const handlePrevious = () => {
-    if (carouselRef.current) {
-      const containerWidth = carouselRef.current.clientWidth;
-      carouselRef.current.scrollBy({
-        left: -containerWidth,
-        behaviour: "smooth",
-      });
-    }
-  };
-
-  const handleScroll = (e) => {
-    const container = e.target;
-    const scrollPosition = container.scrollLeft;
-    const containerWidth = container.clientWidth;
-    const activeIndex = Math.round(scrollPosition / containerWidth);
-    setCurrentIndex(activeIndex + 1);
-  };
-
   return (
-    <section className='flex flex-col px-8 md:px-16 lg:px-10 pb-5 snap-start h-full max-w-[1440px] mx-auto'>
-      <div className='flex-1 flex flex-col items-start gap-4 md:gap-6'>
-        {/* judul dan deskripsi section */}
-        <div className='flex flex-col items-start gap-4 md:gap-6 w-full'>
-          <div className='text-primary-olive bg-light-olive font-semibold flex items-center gap-1 p-2 rounded-[20px] text-xs md:text-sm'>
-            <div>{"//"}</div>
-            <span className='uppercase'>Portfolio</span>
-          </div>
-
-          <h2 className='font-extrabold text-3xl md:text-5xl'>
-            Top <span className='text-dark-olive'>Projects</span>
-          </h2>
-
-          <div className='flex justify-between w-full'>
-            <p className='text-sm md:text-xl'>
-              List of my best projects that I have done
-            </p>
-
-            <div className='hidden lg:flex items-center gap-5'>
-              <button
-                onClick={handlePrevious}
-                disabled={currentIndex === 1}
-                className={`bg-light-olive p-3 rounded-full ${currentIndex === 1 && "opacity-50 cursor-not-allowed"}`}>
-                <FaAngleLeft />
-              </button>
-              <span className='lg:text-xl font-semibold'>
-                {currentIndex} / {projectData.length}
-              </span>
-              <button
-                onClick={handleNext}
-                disabled={currentIndex === projectData.length}
-                className={`bg-light-olive p-3 rounded-full ${currentIndex === projectData.length && "opacity-50 cursor-not-allowed"} active:scale-[0.98]`}>
-                <FaAngleRight />
-              </button>
-            </div>
-          </div>
+    <section
+      id='projects'
+      className='scroll-mt-32 flex flex-col items-start gap-4 md:gap-6'>
+      {/* judul dan deskripsi section */}
+      <div className='flex flex-col gap-1'>
+        <div className='flex items-center gap-2 text-xs md:text-lg text-primary-olive font-bold'>
+          <span>{"//"}</span>
+          <span className='uppercase'>Projects</span>
         </div>
 
-        <div className='flex  flex-col items-center gap-2 w-full'>
-          {/* Proyek */}
-          <div
-            ref={carouselRef}
-            onScroll={handleScroll}
-            className='flex w-full gap-6 overflow-x-auto snap-x snap-mandatory p-5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
-            {projectData.map((project) => (
-              <ProjectCard
-                key={project.id}
-                img={project.image}
-                title={project.title}
-                icon={project.icon}
-                desc={project.desc}
-                tech={project.tech}
-              />
-            ))}
-          </div>
-
-          <div className='flex lg:hidden gap-4'>
-            {projectData.map((_, index) => (
-              <div
-                key={index}
-                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${currentIndex === index + 1 ? "bg-dark-olive" : "bg-gray-300"}`}></div>
-            ))}
-          </div>
-        </div>
-
-        {/* tombol */}
-        <Button variant='primary' className='mx-auto'>
-          See More
-          <FaAngleRight />
-        </Button>
+        <h2 className="relative w-fit pb-4 font-bold text-2xl md:text-4xl after:absolute after:left-0 after:bottom-0 after:h-1 after:w-1/2 after:rounded-md after:bg-primary-olive after:content-['']">
+          Selected Projects
+        </h2>
       </div>
 
-      <ScrollIndicator invitation='Want to collaborate? contact me' />
+      <div className='flex flex-col gap-10'>
+        {projectData.map((project) => (
+          <div
+            key={project.id}
+            className='flex flex-col lg:flex-row gap-4 lg:gap-10'>
+            <div className='flex-1 rounded-[15px]'>
+              <img
+                src={project.image}
+                className='rounded-[15px]'
+                alt={`${project.title}'s image`}
+              />
+            </div>
+
+            <div className='flex-1 flex flex-col justify-center gap-2.5 lg:gap-5 px-4 lg:px-0'>
+              <h3 className='font-semibold text-2xl lg:text-3xl'>
+                {project.title}
+              </h3>
+              <p className='lg:text-lg'>{project.desc}</p>
+
+              <div className='text-warm-gray font-medium'>
+                {project.tech.map((technology, index) => (
+                  <span key={technology}>
+                    {technology}
+                    {index < project.tech.length - 1 && " · "}
+                  </span>
+                ))}
+              </div>
+
+              <div className='flex gap-5'>
+                <LinkButton
+                  variant='secondary'
+                  link={project.demo}
+                  className='flex-1 justify-center'>
+                  Live Demo
+                  <FaArrowUpRightFromSquare />
+                </LinkButton>
+
+                <LinkButton
+                  variant='secondary'
+                  link={project.repo}
+                  className='flex-1 justify-center'>
+                  Source Code
+                  <FaArrowUpRightFromSquare />
+                </LinkButton>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

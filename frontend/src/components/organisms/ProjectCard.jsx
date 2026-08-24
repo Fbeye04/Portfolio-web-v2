@@ -34,7 +34,7 @@ export default function ProjectCard({ img, title, icon, desc, tech }) {
           {tech.map((item, index) => (
             <span
               key={index}
-              className='bg-light-olive text-dark-olive font-medium rounded-[20px] py-2 px-4 text-sm md:text-xl lg:text-2xl'>
+              className='bg-light-olive text-dark-olive font-medium rounded-[20px] py-2 px-4 text-base md:text-xl lg:text-2xl'>
               {item}
             </span>
           ))}
