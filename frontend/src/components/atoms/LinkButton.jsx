@@ -14,7 +14,7 @@ export default function LinkButton({ variant, link, children, className }) {
       href={link}
       target='_blank'
       rel='noopener noreferrer'
-      className={`flex justify-center items-center text-base md:text-xl font-semibold rounded-2xl lg:rounded-[20px] border ${buttonVariant} ${className}`}>
+      className={`flex justify-center items-center text-base md:text-xl font-semibold rounded-2xl lg:rounded-[20px] border ${buttonVariant} ${className} cursor-pointer`}>
       {children}
     </a>
   );
