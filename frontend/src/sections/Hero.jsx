@@ -6,12 +6,12 @@ const socialMedia = [
   {
     icon: "devicon-linkedin-plain",
     media: "LinkedIn",
-    link: "linkedin.com/in/muhammad-fachrezi-barus",
+    link: "https://linkedin.com/in/muhammad-fachrezi-barus",
   },
   {
     icon: "devicon-github-original",
     media: "Github",
-    link: "github.com/fachrezibarus",
+    link: "https://github.com/Fbeye04",
   },
 ];
 

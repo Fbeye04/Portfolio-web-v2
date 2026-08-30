@@ -8,12 +8,13 @@ const VARIANTS = {
 
 export default function LinkButton({ variant, link, children, className }) {
   const buttonVariant = VARIANTS[variant] || VARIANTS.secondary;
+  const shouldOpenNewTab = !link.toLowerCase().startsWith("mailto:");
 
   return (
     <a
       href={link}
-      target='_blank'
-      rel='noopener noreferrer'
+      target={shouldOpenNewTab ? "_blank" : undefined}
+      rel={shouldOpenNewTab ? "noopener noreferrer" : undefined}
       className={`flex justify-center items-center text-base md:text-xl font-semibold rounded-2xl lg:rounded-[20px] border ${buttonVariant} ${className} cursor-pointer`}>
       {children}
     </a>

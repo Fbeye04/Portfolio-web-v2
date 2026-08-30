@@ -1,5 +1,6 @@
 import { FaCode, FaBullseye, FaUserGroup, FaDownload } from "react-icons/fa6";
 import LinkButton from "../components/atoms/LinkButton";
+import SectionHeading from "../components/molecules/SectionHeading";
 
 const myStrengths = [
   {
@@ -21,16 +22,9 @@ export default function About() {
     <section
       id='about'
       className='scroll-mt-32 flex flex-col items-start gap-5 lg:gap-10'>
-      <div className='flex flex-col gap-1'>
-        <div className='flex items-center gap-1 text-xs md:text-lg text-primary-olive font-bold'>
-          <span>//</span>
-          <span className='uppercase'>Introduction</span>
-        </div>
-
-        <h2 className="relative w-fit pb-4 font-bold text-2xl md:text-4xl after:absolute after:left-0 after:bottom-0 after:h-1 after:w-1/2 after:rounded-md after:bg-primary-olive after:content-['']">
-          About Me
-        </h2>
-      </div>
+      <SectionHeading
+        headline='// introduction'
+        title='about me'></SectionHeading>
 
       <div className='flex flex-col gap-5 lg:gap-4'>
         {/* deskripsi */}

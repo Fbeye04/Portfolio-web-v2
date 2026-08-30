@@ -1,21 +1,22 @@
 import ContactForm from "../components/organisms/ContactForm";
+import SectionHeading from "../components/molecules/SectionHeading";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa6";
 
 const socialMedia = [
   {
     icon: <FaEnvelope />,
     media: "Email",
-    link: "fachrezibarus@gmail.com",
+    link: "mailto:fachrezibarus@gmail.com",
   },
   {
     icon: <FaLinkedin />,
     media: "LinkedIn",
-    link: "linkedin.com/in/muhammad-fachrezi-barus",
+    link: "https://linkedin.com/in/muhammad-fachrezi-barus",
   },
   {
     icon: <FaGithub />,
     media: "Github",
-    link: "github.com/fachrezibarus",
+    link: "https://github.com/fachrezibarus",
   },
 ];
 
@@ -25,16 +26,9 @@ export default function Contact() {
       id='contact'
       className='scroll-mt-32 flex flex-col lg:flex-row gap-5 lg:gap-10'>
       <div className='flex flex-col items-start gap-4 md:gap-6 lg:flex-1'>
-        <div className='flex flex-col gap-1'>
-          <div className='flex items-center gap-2 text-xs md:text-lg text-primary-olive font-bold'>
-            <div>{"</>"}</div>
-            <span className='uppercase'>Contact</span>
-          </div>
-
-          <h2 className="relative w-fit pb-4 font-bold text-2xl md:text-4xl after:absolute after:left-0 after:bottom-0 after:h-1 after:w-1/2 after:rounded-md after:bg-primary-olive after:content-['']">
-            Let's Work!
-          </h2>
-        </div>
+        <SectionHeading
+          headline='</> contact'
+          title="Let's Work!"></SectionHeading>
 
         <p className='text-base md:text-xl text-start text-warm-gray'>
           I'm currently open to new opportunities and exciting projects.

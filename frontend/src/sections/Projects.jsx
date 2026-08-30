@@ -9,6 +9,7 @@ import projectOne from "../assets/chill.png";
 import projectTwo from "../assets/restomate.png";
 import projectThree from "../assets/rest-countries-app.png";
 import LinkButton from "../components/atoms/LinkButton";
+import SectionHeading from "../components/molecules/SectionHeading";
 
 const projectData = [
   {
@@ -48,26 +49,14 @@ export default function Projects() {
     <section
       id='projects'
       className='scroll-mt-32 flex flex-col items-start gap-4 md:gap-6'>
-      {/* judul dan deskripsi section */}
-      <div className='flex flex-col gap-1  w-full'>
-        <div className='flex items-center gap-2 text-xs md:text-lg text-primary-olive font-bold'>
-          <span>{"//"}</span>
-          <span className='uppercase'>Projects</span>
-        </div>
-
-        <div className='flex justify-between'>
-          <h2 className="relative w-fit pb-4 font-bold text-2xl md:text-4xl after:absolute after:left-0 after:bottom-0 after:h-1 after:w-1/2 after:rounded-md after:bg-primary-olive after:content-['']">
-            Selected Projects
-          </h2>
-
-          <LinkButton
-            variant='ghost'
-            link='https://github.com/Fbeye04?tab=repositories'>
-            View all projects
-            <FaArrowRight />
-          </LinkButton>
-        </div>
-      </div>
+      <SectionHeading headline='// projects' title='Top Projects'>
+        <LinkButton
+          variant='ghost'
+          link='https://github.com/Fbeye04?tab=repositories'>
+          All projects
+          <FaArrowRight />
+        </LinkButton>
+      </SectionHeading>
 
       <div className='flex flex-col gap-10'>
         {projectData.map((project) => (
