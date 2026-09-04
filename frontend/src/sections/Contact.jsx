@@ -7,16 +7,19 @@ const socialMedia = [
     icon: <FaEnvelope />,
     media: "Email",
     link: "mailto:fachrezibarus@gmail.com",
+    display: "fachrezibarus@gmail.com",
   },
   {
     icon: <FaLinkedin />,
     media: "LinkedIn",
     link: "https://linkedin.com/in/muhammad-fachrezi-barus",
+    display: "Muhammad Fachrezi Barus",
   },
   {
     icon: <FaGithub />,
     media: "Github",
     link: "https://github.com/fachrezibarus",
+    display: "fachrezibarus",
   },
 ];
 
@@ -27,7 +30,7 @@ export default function Contact() {
       className='scroll-mt-32 flex flex-col lg:flex-row gap-5 lg:gap-10'>
       <div className='flex flex-col items-start gap-4 md:gap-6 lg:flex-1'>
         <SectionHeading
-          headline='</> contact'
+          label='</> contact'
           title="Let's Work!"></SectionHeading>
 
         <p className='text-base md:text-xl text-start text-warm-gray'>
@@ -47,7 +50,7 @@ export default function Contact() {
               <div className='flex flex-col text-base md:text-xl'>
                 <span className='font-semibold'>{socmed.media}</span>
                 <a href={socmed.link} target='_blank' rel='noopener noreferrer'>
-                  {socmed.link}
+                  {socmed.display}
                 </a>
               </div>
             </div>

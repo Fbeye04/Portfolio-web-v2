@@ -10,6 +10,7 @@ import projectTwo from "../assets/restomate.png";
 import projectThree from "../assets/rest-countries-app.png";
 import LinkButton from "../components/atoms/LinkButton";
 import SectionHeading from "../components/molecules/SectionHeading";
+import { motion } from "framer-motion";
 
 const projectData = [
   {
@@ -49,7 +50,7 @@ export default function Projects() {
     <section
       id='projects'
       className='scroll-mt-32 flex flex-col items-start gap-4 md:gap-6'>
-      <SectionHeading headline='// projects' title='Top Projects'>
+      <SectionHeading label='// projects' title='Top Projects'>
         <LinkButton
           variant='ghost'
           link='https://github.com/Fbeye04?tab=repositories'>
@@ -60,13 +61,17 @@ export default function Projects() {
 
       <div className='flex flex-col gap-10'>
         {projectData.map((project) => (
-          <div
+          <motion.div
             key={project.id}
-            className='flex flex-col lg:flex-row gap-4 lg:gap-10'>
-            <div className='flex-1 rounded-[15px]'>
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className='flex flex-col lg:flex-row gap-4 lg:gap-10 group'>
+            <div className='flex-1 rounded-[15px] overflow-hidden'>
               <img
                 src={project.image}
-                className='rounded-[15px]'
+                className='rounded-[15px] transition-transform duration-300 ease-out group-hover:scale-105'
                 alt={`${project.title}'s image`}
               />
             </div>
@@ -104,7 +109,7 @@ export default function Projects() {
                 </LinkButton>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

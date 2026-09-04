@@ -1,6 +1,7 @@
 import { FaCode, FaBullseye, FaUserGroup, FaDownload } from "react-icons/fa6";
 import LinkButton from "../components/atoms/LinkButton";
 import SectionHeading from "../components/molecules/SectionHeading";
+import { motion } from "framer-motion";
 
 const myStrengths = [
   {
@@ -18,27 +19,53 @@ const myStrengths = [
 ];
 
 export default function About() {
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section
       id='about'
       className='scroll-mt-32 flex flex-col items-start gap-5 lg:gap-10'>
-      <SectionHeading
-        headline='// introduction'
-        title='about me'></SectionHeading>
+      <SectionHeading label='// introduction' title='about me'></SectionHeading>
 
       <div className='flex flex-col gap-5 lg:gap-4'>
         {/* deskripsi */}
-        <p className='text-base md:text-xl text-warm-gray'>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className='text-base md:text-xl text-warm-gray'>
           I'm a Full-Stack Developer trained through DBS Foundation and
           Harisenin.com, combining scientific logic with a focus on building
           responsive interfaces and scalable APIs.
-        </p>
+        </motion.p>
 
         {/* Features */}
-        <div className='flex flex-row gap-4 lg:gap-0'>
+        <motion.div
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true }}
+          className='flex flex-row gap-4 lg:gap-0'>
           {myStrengths.map((features) => (
-            <div
+            <motion.div
               key={features.title}
+              variants={itemVariants}
               className='flex items-center gap-4 w-full'>
               <div className='bg-primary-olive w-[2px] h-16 lg:h-7 rounded-lg'></div>
 
@@ -49,9 +76,9 @@ export default function About() {
                   {features.title}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* tombol download */}

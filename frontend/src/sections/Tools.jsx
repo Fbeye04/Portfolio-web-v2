@@ -1,5 +1,6 @@
 import TechCard from "../components/molecules/TechCard";
 import SectionHeading from "../components/molecules/SectionHeading";
+import { motion } from "framer-motion";
 
 const myToolsData = [
   {
@@ -41,22 +42,42 @@ const myToolsData = [
 ];
 
 export default function Tools() {
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className='flex flex-col items-start gap-4 md:gap-6 lg:gap-10 '>
       <SectionHeading
-        headline='</> technologies'
+        label='</> technologies'
         title='tech stack'></SectionHeading>
 
       {/* tech tools */}
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-start lg:gap-6 gap-4 w-full'>
+      <motion.div
+        variants={containerVariants}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true }}
+        className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:justify-start lg:gap-6 gap-4 w-full'>
         {myToolsData.map((tools) => (
-          <TechCard
-            key={tools.name}
-            iconClass={tools.icon}
-            techName={tools.name}
-          />
+          <motion.div key={tools.name} variants={itemVariants}>
+            <TechCard iconClass={tools.icon} techName={tools.name} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

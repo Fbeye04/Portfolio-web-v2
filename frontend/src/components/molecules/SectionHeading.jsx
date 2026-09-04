@@ -1,8 +1,15 @@
-export default function SectionHeading({ headline, title, children }) {
+import { motion } from "framer-motion";
+
+export default function SectionHeading({ label, title, children }) {
   return (
-    <div className='flex flex-col gap-1 w-full'>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className='flex flex-col gap-1 w-full'>
       <span className='uppercase text-xs md:text-lg text-primary-olive font-bold'>
-        {headline}
+        {label}
       </span>
 
       <div className='flex justify-between'>
@@ -12,6 +19,6 @@ export default function SectionHeading({ headline, title, children }) {
 
         {children}
       </div>
-    </div>
+    </motion.div>
   );
 }

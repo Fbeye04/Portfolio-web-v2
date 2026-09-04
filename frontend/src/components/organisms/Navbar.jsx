@@ -1,10 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LinkButton from "../atoms/LinkButton";
 import NavItem from "../atoms/NavItem";
 import { FaArrowRight, FaBars, FaXmark } from "react-icons/fa6";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
+
+  useEffect(() => {
+    const sections = ["hero", "about", "projects", "contact"];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries.find((entry) => entry.isIntersecting);
+
+        if (visibleSection) {
+          setActiveLink(
+            visibleSection.target.id === "hero"
+              ? null
+              : visibleSection.target.id,
+          );
+        }
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px",
+      },
+    );
+
+    sections.forEach((sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <nav className='flex justify-between lg:items-center py-5 md:py-7 border-b-[1px] border-warm-gray max-w-5xl mx-auto px-7 md:px-16 lg:px-0'>
@@ -36,16 +69,19 @@ export default function Navbar() {
             link='#about'
             title='About Me'
             onClick={() => setIsOpen(false)}
+            isActive={activeLink === "about"}
           />
           <NavItem
             link='#projects'
             title='Projects'
             onClick={() => setIsOpen(false)}
+            isActive={activeLink === "projects"}
           />
           <NavItem
             link='#contact'
             title='Contact'
             onClick={() => setIsOpen(false)}
+            isActive={activeLink === "contact"}
           />
         </ul>
 

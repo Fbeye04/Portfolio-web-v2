@@ -5,11 +5,21 @@ import Tools from "./sections/Tools";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import { FaArrowUp } from "react-icons/fa6";
+import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useState } from "react";
 
 export default function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
+
   return (
     <div>
-      <header className='sticky z-50 top-0 bg-off-white w-full'>
+      <header
+        className={`sticky z-50 top-0  w-full ${isScrolled ? "bg-off-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"} transition-all duration-300`}>
         <Navbar />
       </header>
 
