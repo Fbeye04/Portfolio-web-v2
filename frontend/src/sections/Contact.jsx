@@ -1,6 +1,7 @@
 import ContactForm from "../components/organisms/ContactForm";
 import SectionHeading from "../components/molecules/SectionHeading";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const socialMedia = [
   {
@@ -28,7 +29,11 @@ export default function Contact() {
     <section
       id='contact'
       className='scroll-mt-32 flex flex-col lg:flex-row gap-5 lg:gap-10'>
-      <div className='flex flex-col items-start gap-4 md:gap-6 lg:flex-1'>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className='flex flex-col items-start gap-4 md:gap-6 lg:flex-1'>
         <SectionHeading
           label='</> contact'
           title="Let's Work!"></SectionHeading>
@@ -56,11 +61,15 @@ export default function Contact() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className='flex-1'>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+        className='flex-1'>
         <ContactForm />
-      </div>
+      </motion.div>
     </section>
   );
 }
