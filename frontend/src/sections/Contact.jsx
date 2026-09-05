@@ -1,15 +1,9 @@
 import ContactForm from "../components/organisms/ContactForm";
 import SectionHeading from "../components/molecules/SectionHeading";
-import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa6";
+import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const socialMedia = [
-  {
-    icon: <FaEnvelope />,
-    media: "Email",
-    link: "mailto:fachrezibarus@gmail.com",
-    display: "fachrezibarus@gmail.com",
-  },
   {
     icon: <FaLinkedin />,
     media: "LinkedIn",
@@ -19,8 +13,8 @@ const socialMedia = [
   {
     icon: <FaGithub />,
     media: "Github",
-    link: "https://github.com/fachrezibarus",
-    display: "fachrezibarus",
+    link: "https://github.com/Fbeye04",
+    display: "Fbeye04",
   },
 ];
 
@@ -28,7 +22,7 @@ export default function Contact() {
   return (
     <section
       id='contact'
-      className='scroll-mt-32 flex flex-col lg:flex-row gap-5 lg:gap-10'>
+      className='scroll-mt-32 flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-10'>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

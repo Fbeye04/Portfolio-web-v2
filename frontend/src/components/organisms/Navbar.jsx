@@ -8,7 +8,7 @@ export default function Navbar() {
   const [activeLink, setActiveLink] = useState(null);
 
   useEffect(() => {
-    const sections = ["hero", "about", "projects", "contact"];
+    const sections = ["hero", "about", "tools", "projects", "contact"];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -72,16 +72,16 @@ export default function Navbar() {
             isActive={activeLink === "about"}
           />
           <NavItem
+            link='#tools'
+            title='Tools'
+            onClick={() => setIsOpen(false)}
+            isActive={activeLink === "tools"}
+          />
+          <NavItem
             link='#projects'
             title='Projects'
             onClick={() => setIsOpen(false)}
             isActive={activeLink === "projects"}
-          />
-          <NavItem
-            link='#contact'
-            title='Contact'
-            onClick={() => setIsOpen(false)}
-            isActive={activeLink === "contact"}
           />
         </ul>
 
@@ -89,7 +89,7 @@ export default function Navbar() {
 
         <LinkButton
           variant='primary'
-          link='mailto:fachrezibarus@gmail.com?subject=Let%27s%20Work%20Together'
+          link='#contact'
           className='w-full lg:w-auto justify-center'>
           Let's talk
           <FaArrowRight />

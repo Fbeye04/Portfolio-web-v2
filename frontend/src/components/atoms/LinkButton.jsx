@@ -8,7 +8,8 @@ const VARIANTS = {
 
 export default function LinkButton({ variant, link, children, className }) {
   const buttonVariant = VARIANTS[variant] || VARIANTS.secondary;
-  const shouldOpenNewTab = !link.toLowerCase().startsWith("mailto:");
+  const shouldOpenNewTab =
+    link.startsWith("http://") || link.startsWith("https://");
 
   return (
     <a

@@ -49,7 +49,7 @@ export default function Projects() {
   return (
     <section
       id='projects'
-      className='scroll-mt-32 flex flex-col items-start gap-4 md:gap-6'>
+      className='scroll-mt-32 flex flex-col items-start gap-4 md:gap-6 lg:gap-10'>
       <SectionHeading label='// projects' title='Top Projects'>
         <LinkButton
           variant='ghost'

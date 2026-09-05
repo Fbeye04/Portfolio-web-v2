@@ -6,11 +6,24 @@ import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import { FaArrowUp } from "react-icons/fa6";
 import { useMotionValueEvent, useScroll } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Lenis from "lenis";
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);

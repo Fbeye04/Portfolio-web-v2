@@ -60,7 +60,9 @@ export default function Tools() {
   };
 
   return (
-    <section className='flex flex-col items-start gap-4 md:gap-6 lg:gap-10 '>
+    <section
+      id='tools'
+      className='scroll-mt-32 flex flex-col items-start gap-4 md:gap-6 lg:gap-10'>
       <SectionHeading
         label='</> technologies'
         title='tech stack'></SectionHeading>

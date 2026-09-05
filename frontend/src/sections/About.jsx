@@ -84,7 +84,7 @@ export default function About() {
       {/* tombol download */}
       <LinkButton
         variant='primary'
-        link='https://drive.google.com/file/d/191lBfGZt07q5_JErUtsK9VDYLn1sQSeP/view?usp=sharing'
+        link='https://drive.google.com/file/d/1uvPr9aZxY_zGTZJhuNWpPml364rO5wCZ/view?usp=sharing'
         className='lg:flex-shrink-0 w-full lg:w-auto'>
         See My CV
         <FaDownload />
