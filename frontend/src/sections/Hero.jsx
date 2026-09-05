@@ -65,7 +65,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
         className='relative'>
-        <div className='absolute z-0 bg-primary-olive bottom-0 right-0 w-[150px] h-[180px] md:w-[280px] lg:h-[300px] rounded-[20px] translate-y-[5%] lg:translate-y-0'></div>
+        <div className='absolute z-0 bg-primary-olive bottom-0 right-0 w-[150px] h-[180px] md:w-[220px] md:h-[260px] lg:w-[280px] lg:h-[300px] rounded-[20px] translate-y-[5%]'></div>
 
         <div className='relative z-10 -translate-x-[5%] border-4 border-white rounded-[20px] w-[180px] md:w-[260px] lg:w-[300px] max-w-full'>
           <img

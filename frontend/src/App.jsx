@@ -14,7 +14,11 @@ export default function App() {
   const { scrollY } = useScroll();
 
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      anchors: true,
+      duration: 1.2,
+      learp: 0.1,
+    });
 
     function raf(time) {
       lenis.raf(time);
