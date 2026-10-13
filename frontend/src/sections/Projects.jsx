@@ -1,13 +1,13 @@
 import {
   FaFilm,
   FaUtensils,
-  FaMap,
   FaArrowUpRightFromSquare,
   FaArrowRight,
+  FaDesktop,
 } from "react-icons/fa6";
-import projectOne from "../assets/chill.png";
-import projectTwo from "../assets/restomate.png";
-import projectThree from "../assets/rest-countries-app.png";
+import projectOne from "../assets/ByteStore.png";
+import projectTwo from "../assets/chill.png";
+import projectThree from "../assets/restomate.png";
 import LinkButton from "../components/atoms/LinkButton";
 import SectionHeading from "../components/molecules/SectionHeading";
 import { motion } from "framer-motion";
@@ -16,6 +16,16 @@ const projectData = [
   {
     id: 1,
     image: projectOne,
+    title: "ByteStore",
+    icon: <FaDesktop />,
+    desc: "Developed ByteStore’s front-end pages, including product search and cart notifications.",
+    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
+    repo: "https://github.com/VPBI-Team-1/E-Commerce-App",
+    demo: "https://e-commerce-app-tan-nine.vercel.app/",
+  },
+  {
+    id: 2,
+    image: projectTwo,
     title: "Chill Movie Platform",
     icon: <FaFilm />,
     desc: "A movie streaming platform with browsing, search, and watchlist.",
@@ -24,8 +34,8 @@ const projectData = [
     demo: "https://chill-movie-streaming-react-part-4-vert.vercel.app/",
   },
   {
-    id: 2,
-    image: projectTwo,
+    id: 3,
+    image: projectThree,
     title: "Restomate",
     icon: <FaUtensils />,
     desc: "A restaurant web app with ordering, menu browsing, and reservation features.",
@@ -33,33 +43,25 @@ const projectData = [
     repo: "https://github.com/Fbeye04/restaurant-service-catalogue-final",
     demo: "https://restomate.netlify.app/",
   },
-  {
-    id: 3,
-    image: projectThree,
-    title: "Rest Countries App",
-    icon: <FaMap />,
-    desc: "An interactive country explorer web featuring third-party REST API and filter/search capabilities.",
-    tech: ["React", "Tailwind CSS", "Rest API"],
-    repo: "https://github.com/Fbeye04/rest-countries-app-react",
-    demo: "https://rest-countries-app-react.vercel.app/",
-  },
 ];
 
 export default function Projects() {
   return (
     <section
-      id='projects'
-      className='scroll-mt-32 flex flex-col items-start gap-4 md:gap-6 lg:gap-10'>
-      <SectionHeading label='// projects' title='Top Projects'>
+      id="projects"
+      className="scroll-mt-32 flex flex-col items-start gap-4 md:gap-6 lg:gap-10"
+    >
+      <SectionHeading label="// projects" title="Top Projects">
         <LinkButton
-          variant='ghost'
-          link='https://github.com/Fbeye04?tab=repositories'>
+          variant="ghost"
+          link="https://github.com/Fbeye04?tab=repositories"
+        >
           All projects
           <FaArrowRight />
         </LinkButton>
       </SectionHeading>
 
-      <div className='flex flex-col gap-10'>
+      <div className="flex flex-col gap-10">
         {projectData.map((project) => (
           <motion.div
             key={project.id}
@@ -67,22 +69,23 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className='flex flex-col lg:flex-row gap-4 lg:gap-10 group'>
-            <div className='flex-1 rounded-[15px] overflow-hidden'>
+            className="flex flex-col lg:flex-row gap-4 lg:gap-10 group"
+          >
+            <div className="flex-1 rounded-[15px] overflow-hidden">
               <img
                 src={project.image}
-                className='rounded-[15px] transition-transform duration-300 ease-out group-hover:scale-105'
+                className="rounded-[15px] transition-transform duration-300 ease-out group-hover:scale-105"
                 alt={`${project.title}'s image`}
               />
             </div>
 
-            <div className='flex-1 flex flex-col justify-center gap-2.5 lg:gap-5 px-4 lg:px-0'>
-              <h3 className='font-semibold text-2xl lg:text-3xl'>
+            <div className="flex-1 flex flex-col justify-center gap-2.5 lg:gap-5 px-4 lg:px-0">
+              <h3 className="font-semibold text-2xl lg:text-3xl">
                 {project.title}
               </h3>
-              <p className='lg:text-lg'>{project.desc}</p>
+              <p className="lg:text-lg">{project.desc}</p>
 
-              <div className='text-warm-gray font-medium'>
+              <div className="text-warm-gray font-medium">
                 {project.tech.map((technology, index) => (
                   <span key={technology}>
                     {technology}
@@ -91,19 +94,21 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className='flex gap-5'>
+              <div className="flex gap-5">
                 <LinkButton
-                  variant='secondary'
+                  variant="secondary"
                   link={project.demo}
-                  className='flex-1 justify-center'>
+                  className="flex-1 justify-center"
+                >
                   Live Demo
                   <FaArrowUpRightFromSquare />
                 </LinkButton>
 
                 <LinkButton
-                  variant='secondary'
+                  variant="secondary"
                   link={project.repo}
-                  className='flex-1 justify-center'>
+                  className="flex-1 justify-center"
+                >
                   Source Code
                   <FaArrowUpRightFromSquare />
                 </LinkButton>
